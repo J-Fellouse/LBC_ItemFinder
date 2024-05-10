@@ -1,5 +1,5 @@
 # LBC_ItemFinder
-**This project was done in 2023, the scraping doesn't work anymore, the repo is actually unmaintened**\
+**Warning : this project was done in 2023, the scraping doesn't work anymore, the repo is actually unmaintened**\
 LeBonCoin scraper with advanced search filters (C# WPF)
 
 ## Main page
