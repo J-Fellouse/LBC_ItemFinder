@@ -1,0 +1,37 @@
+﻿<Window x:Class="ItemFinder_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ItemFinder_WPF" 
+        xmlns:ucontrols="clr-namespace:ItemFinder_WPF.MyUserControls" 
+        mc:Ignorable="d"
+        x:Name="MyMainWindow"
+        Title="ItemFinder" Height="1000" Width="1440"
+        FontFamily="{StaticResource EBGaramondFont}" Background="{StaticResource BackgroundBrush}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition  Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" HorizontalAlignment="Stretch">
+            <ucontrols:IFIconButton ToolTip="Accueil" x:Name="HomeButton" Tag="Home" Selected="True" Icon="{StaticResource HomeIcon}" Margin="0,0,4,0"   ></ucontrols:IFIconButton>
+            <ucontrols:IFIconButton ToolTip="Résultats de la recherche" x:Name="ResultsButton"  Tag="Results" Selected="False" Icon="{StaticResource ResultsIcon}" Margin="0,0,4,0" ></ucontrols:IFIconButton>
+            <ucontrols:IFIconButton ToolTip="Recherches sauvegardées" x:Name="SavedSearchesAndAlertsButton" Tag="SavedSearchesAndAlerts" Selected="False" Icon="{StaticResource SavedSearchesAndAlertsIcon}" Margin="0,0,4,0" ></ucontrols:IFIconButton>
+            <ucontrols:IFIconButton ToolTip="Gestion de la liste noire" x:Name="BlacklistButton" Tag="Blacklist" Selected="False" Icon="{StaticResource BlacklistIcon}" Margin="0,0,4,0" ></ucontrols:IFIconButton>
+            <ucontrols:IFIconButton ToolTip="Aide" x:Name="HelpButton" Tag="Help" Selected="False"  Icon="{StaticResource HelpIcon}" Margin="0,0,4,0" MouseLeftButtonUp="HelpButton_MouseLeftButtonUp" ></ucontrols:IFIconButton>
+            <Grid Background="{StaticResource IconButtonUnselectedBrush}" MouseLeftButtonDown="DockPanel_MouseLeftButtonDown">
+                <DockPanel HorizontalAlignment="Right">
+                    <TextBlock VerticalAlignment="Center" FontSize="36" >ItemFinder</TextBlock>
+                    <DockPanel Margin="72,0,11,0">
+                        <ucontrols:IFIconButton x:Name="MinimizeButton" MouseLeftButtonDown="IFIconButton_MouseLeftButtonDown"  Icon="{StaticResource MinimizeIcon}"></ucontrols:IFIconButton>
+                        <ucontrols:IFIconButton x:Name="CloseButton" MouseLeftButtonDown="IFIconButton_MouseLeftButtonDown_1"  Icon="{StaticResource CloseIcon}"  ></ucontrols:IFIconButton>
+                    </DockPanel>
+                </DockPanel>
+            </Grid>
+        </DockPanel>
+
+        <Frame Grid.Row="1" x:Name="MyFrame" NavigationUIVisibility="Hidden" ContentRendered="MyFrame_ContentRendered"></Frame>
+    </Grid>
+</Window>
